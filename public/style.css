@@ -1,0 +1,30 @@
+body {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-align: center;
+}
+
+#box {
+  background: rgba(173, 216, 230, 0.603);
+  border: 6px solid lightblue;
+  border-radius: 3px;
+  padding: 30px;
+  width: 80%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+form {
+  text-align: left;
+  margin: 0 auto;
+  width: 70%;
+}
+
+h1 {
+  text-align: center;
+}
+
+h4 {
+  font-size: 17px;
+  font-weight: normal;
+  font-style: italic;
+}
