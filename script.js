@@ -13,7 +13,8 @@ function parseExcel() {
       const fileData = new Uint8Array(target.result);
       const workbook = XLSX.read(fileData, { type: 'array' });
       const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
-      const data = XLSX.utils.sheet_to_json(firstSheet, { header: 1 });
+      firstSheet['!ref'] = 'A1:Z6000';
+      const data = XLSX.utils.sheet_to_json(firstSheet, { header: 1, blankrows: false });
       
       res(data);
     };
@@ -78,7 +79,7 @@ function parseReport(data) {
 
   for (const row of data) {
     const PAGE_STARTER = 'MASSACHUSETTS DEPARTMENT OF CHILDREN & FAMILIES QUARTERLY PROFILE --';
-    if (row[0] && row[0].startsWith(PAGE_STARTER)) {
+    if (typeof row[0] === 'string' && row[0].startsWith(PAGE_STARTER)) {
       rawPages.push([row]);
     } else {
       rawPages[rawPages.length - 1].push(row);
